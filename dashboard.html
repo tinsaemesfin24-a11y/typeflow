@@ -13,6 +13,13 @@
 
     <style>
 
+        /* =========================
+           Dashboard Enhancement
+           Contributor: Your Name
+           Added responsive polishing
+           and hover interaction tuning
+        ========================= */
+
         .stat-card {
             background: var(--surface-color);
             border: 1px solid var(--surface-border);
@@ -22,6 +29,9 @@
             align-items: center;
             gap: 16px;
             transition: all 0.3s;
+
+            /* Performance optimization */
+            will-change: transform;
         }
 
         /* UPDATE 1 */
@@ -29,7 +39,7 @@
             border-color: var(--primary);
             box-shadow: 0 0 20px var(--primary-glow);
 
-            /* New Update */
+            /* Hover lift effect */
             transform: translateY(-5px);
         }
 
@@ -83,12 +93,30 @@
             display: block;
         }
 
+        /* Accessibility enhancement */
+        .tab-btn:focus{
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* Smooth animation consistency */
+        .stat-card,
+        .tab-btn{
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+        }
+
         /* UPDATE 2 */
         @media (max-width:768px){
 
             .dashboard-grid{
                 display: flex;
                 flex-direction: column;
+
+                /* Better spacing on mobile */
+                gap: 20px;
             }
 
             .navbar{
@@ -109,6 +137,7 @@
 
 <body>
 
+    <!-- Main Navigation Bar -->
     <nav class="navbar">
 
         <div class="logo">
@@ -132,6 +161,7 @@
 
         </div>
 
+        <!-- Responsive Navigation Controls -->
         <div class="nav-links">
 
             <a href="index.html"
@@ -167,12 +197,13 @@
     <main class="main-container"
     style="max-width:1200px;">
 
+        <!-- Dashboard Grid Layout -->
         <div class="dashboard-grid">
 
             <!-- LEFT: Profile -->
-
             <div class="profile-card glass-panel">
 
+                <!-- User Profile Section -->
                 <div style="text-align:center; margin-bottom:25px;">
 
                     <div style="
@@ -208,6 +239,7 @@
 
                 </div>
 
+                <!-- XP Progress Component -->
                 <div class="xp-section"
                 style="margin-bottom:25px;">
 
@@ -234,8 +266,7 @@
 
                 </div>
 
-                <!-- Quick Stats -->
-
+                <!-- Statistics Cards -->
                 <div style="
                 display:flex;
                 flex-direction:column;
@@ -354,6 +385,7 @@
 
                 </div>
 
+                <!-- Training Action Button -->
                 <a href="index.html"
                 class="btn-primary"
                 style="width:100%; justify-content:center;">
